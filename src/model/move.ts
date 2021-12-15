@@ -3,24 +3,37 @@ interface Position {
 	y: number;
 }
 type Direction = 'l' | 'r';
-
+type Orientation = 'N' | 'S' | 'E' | 'W';
 export type Input = 'm' | Direction;
 
 export class Rover {
-	// position: Position
+	position: Position;
 	counter = 0;
-	private _direction: Direction;
+	private _orientation: Orientation;
+
+	constructor(position: Position = { x: 0, y: 0 }, orientation: Orientation = 'N') {
+		this.position = position;
+		this._orientation = orientation;
+	}
 
 	move(): void {
 		this.counter++;
 	}
 
 	rotate(direction: Direction): void {
-		this._direction = direction;
+		const orientations: Orientation[] = ['N', 'E', 'S', 'W'];
+		const currentIdx = orientations.indexOf(this._orientation);
+		let newIdx;
+		if (direction === 'r') {
+			newIdx = (currentIdx + 1 + orientations.length) % orientations.length;
+		} else if (direction === 'l') {
+			newIdx = (currentIdx - 1 + orientations.length) % orientations.length;
+		}
+		this._orientation = orientations[newIdx];
 	}
 
-	get direction(): Direction {
-		return this._direction;
+	get orientation(): Orientation {
+		return this._orientation;
 	}
 }
 
