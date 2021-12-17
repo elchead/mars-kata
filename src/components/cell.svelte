@@ -2,7 +2,10 @@
 	export let id;
 </script>
 
-<td><p class="red-piece" {id} /></td>
+<td
+	><p class="red-piece" {id} />
+	<slot /></td
+>
 
 <style>
 	td {
