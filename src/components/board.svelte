@@ -8,7 +8,7 @@
 		return i * columns.length + j;
 	}
 
-	function isRoverPosition(i, j) {
+	function isRoverPosition(i, j, position) {
 		return getIdx(i, j) === getIdx(position.x, position.y);
 	}
 </script>
@@ -17,7 +17,11 @@
 	{#each columns.slice().reverse() as i}
 		<tr id="r{i}">
 			{#each columns as j}
-				<Cell id={getIdx(i, j)}>{isRoverPosition(i, j) ? orientation : ''}</Cell>
+				{#if isRoverPosition(i, j, position)}
+					<Cell id={getIdx(i, j)}>{orientation}</Cell>
+				{:else}
+					<Cell id={getIdx(i, j)} />
+				{/if}
 			{/each}
 		</tr>
 	{/each}

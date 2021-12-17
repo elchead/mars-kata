@@ -3,7 +3,7 @@ interface Position {
 	y: number;
 }
 type Direction = 'l' | 'r';
-type Orientation = 'N' | 'S' | 'E' | 'W';
+export type Orientation = 'N' | 'S' | 'E' | 'W';
 export type Input = 'm' | Direction;
 
 export class Rover {
@@ -16,7 +16,7 @@ export class Rover {
 		this._orientation = orientation;
 	}
 
-	move(): void {
+	move(): Position {
 		switch (this.orientation) {
 			case 'N':
 				this.position.y++;
@@ -32,6 +32,7 @@ export class Rover {
 				break;
 		}
 		this.counter++;
+		return this.position;
 	}
 
 	rotate(direction: Direction): void {
