@@ -3,7 +3,6 @@
 </script>
 
 <td>
-	<p class="red-piece" {id} />
 	<slot />
 </td>
 
@@ -13,5 +12,7 @@
 		background-color: #ba7a3a;
 		width: 65px;
 		height: 65px;
+		font-size: 30px;
+		align-self: baseline;
 	}
 </style>

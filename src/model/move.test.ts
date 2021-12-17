@@ -38,14 +38,25 @@ describe('Board', () => {
 
 describe('move', () => {
 	each([
-		['N', { x: 0, y: 1 }],
-		['S', { x: 0, y: -1 }],
-		['E', { x: 1, y: 0 }],
-		['W', { x: -1, y: 0 }]
+		['N', { x: 1, y: 2 }],
+		['S', { x: 1, y: 0 }],
+		['E', { x: 2, y: 1 }],
+		['W', { x: 0, y: 1 }]
 	]).it('changes position when moving', (orientation, res) => {
-		const sut = new Rover({ x: 0, y: 0 }, orientation);
+		const sut = new Rover({ x: 1, y: 1 }, orientation);
 		sut.move();
 		expect(sut.position).toEqual(res);
 	});
 	// it("when")
+
+	each([
+		['N', { x: 0, y: 9 }, { x: 0, y: 0 }],
+		['S', { x: 0, y: 0 }, { x: 0, y: 9 }],
+		['E', { x: 9, y: 0 }, { x: 0, y: 0 }],
+		['W', { x: 0, y: 0 }, { x: 9, y: 0 }]
+	]).it('edge cases handled when moving', (orientation, initialPosition, res) => {
+		const sut = new Rover(initialPosition, orientation);
+		sut.move();
+		expect(sut.position).toEqual(res);
+	});
 });

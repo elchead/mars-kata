@@ -19,16 +19,16 @@ export class Rover {
 	move(): Position {
 		switch (this.orientation) {
 			case 'N':
-				this.position.y++;
+				this.position.y = (this.position.y + 1 + 10) % 10;
 				break;
 			case 'S':
-				this.position.y--;
+				this.position.y = (this.position.y - 1 + 10) % 10;
 				break;
 			case 'E':
-				this.position.x++;
+				this.position.x = (this.position.x + 1 + 10) % 10;
 				break;
 			case 'W':
-				this.position.x--;
+				this.position.x = (this.position.x - 1 + 10) % 10;
 				break;
 		}
 		this.counter++;
@@ -69,7 +69,7 @@ export class Board {
 		}
 		return this.rover;
 	}
-	evaluateSingle(i: Input) {
+	evaluateSingle(i: Input): void {
 		switch (i) {
 			case 'l':
 			case 'r':
