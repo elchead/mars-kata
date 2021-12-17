@@ -59,7 +59,7 @@ export class Board {
 		this.rover = rover;
 	}
 
-	evaluate(input: Input | Input[]): void {
+	evaluate(input: Input | Input[]): Rover {
 		if (!Array.isArray(input)) {
 			this.evaluateSingle(input);
 		} else {
@@ -67,8 +67,9 @@ export class Board {
 				this.evaluateSingle(i);
 			}
 		}
+		return this.rover;
 	}
-	evaluateSingle(i: Input): void {
+	evaluateSingle(i: Input) {
 		switch (i) {
 			case 'l':
 			case 'r':

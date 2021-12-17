@@ -9,7 +9,7 @@
 	}
 
 	function isRoverPosition(i, j, position) {
-		return getIdx(i, j) === getIdx(position.x, position.y);
+		return getIdx(i, j) === getIdx(position.y, position.x);
 	}
 </script>
 
