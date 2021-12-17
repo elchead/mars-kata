@@ -1,4 +1,4 @@
-<script>
+<script lang="typescript">
 	import Cell from '../components/cell.svelte';
 	export let position;
 	export let orientation;
