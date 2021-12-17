@@ -47,4 +47,5 @@ describe('move', () => {
 		sut.move();
 		expect(sut.position).toEqual(res);
 	});
+	// it("when")
 });
