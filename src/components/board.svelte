@@ -14,7 +14,7 @@
 </script>
 
 <table>
-	{#each columns as i}
+	{#each columns.slice().reverse() as i}
 		<tr id="r{i}">
 			{#each columns as j}
 				<Cell id={getIdx(i, j)}>{isRoverPosition(i, j) ? orientation : ''}</Cell>
