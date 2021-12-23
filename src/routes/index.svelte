@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
 	import Cell from '../components/cell.svelte';
 	import Board from '../components/board.svelte';
 	import { Rover, Board as RoverBoard, Orientation } from '../model/move';

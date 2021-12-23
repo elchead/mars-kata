@@ -1,7 +1,3 @@
-<script>
-	export let id;
-</script>
-
 <td>
 	<slot />
 </td>
