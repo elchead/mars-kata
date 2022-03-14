@@ -4,6 +4,7 @@
 	import { Rover, Board as RoverBoard, Orientation } from '../model/move';
 	let rover = new Rover({ x: 1, y: 0 }, 'N');
 	const board = new RoverBoard(rover);
+
 	$: position = rover.position;
 	$: orientation = orientationMap[rover.orientation];
 	function handleKeydown(event) {
